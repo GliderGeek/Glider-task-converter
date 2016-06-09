@@ -1,1 +1,5 @@
 hidden
+Glider-task-converter/standalone/*.zip
+Glider-task-converter/standalone/linux
+Glider-task-converter/standalone/mac
+Glider-task-converter/standalone/windows

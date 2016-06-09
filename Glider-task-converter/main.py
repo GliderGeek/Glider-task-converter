@@ -2,7 +2,7 @@ import csv
 import os
 from TaskReader import TaskReader
 from FlarmWriter import FlarmWriter
-from Tkinter import Label, Tk, Button, Entry, W
+from Tkinter import Label, Tk, Button, Entry, W, N, S, E
 import tkFileDialog
 
 cup_file_chosen = False
@@ -120,20 +120,22 @@ def write_flarm_cfg(filename, _SeeYou_task, _task_name):
 
         writer.write_flarm_task(writer, task_info)
 
-title = Label(root, text="Glider-task-converter", font=("Helvetica", 30))
+title = Label(root, text="Glider-task-converter", font=("Helvetica", 30), width=20)
 load_cup = Button(root, text="Load .cup file", command=get_cup_filename)
-cup_filename = Label(root, text="")
+cup_filename = Label(root, text="", width=20)
 write_flarm = Button(root, text="Destination folder", command=get_flarm_directory)
-flarm_directory_name = Label(root, text="")
+flarm_directory_name = Label(root, text="", width=20)
 convert = Button(root, text="Convert", command=start_conversion, state="disabled")
 conversion_status = Label(root, text="")
+filler = Label(root, text="")
 
-title.grid(row=0, column=0)
-load_cup.grid(row=1, column=0)
+title.grid(row=0, column=0, columnspan=2, pady=5)
+load_cup.grid(row=1, column=0, sticky=E)
 cup_filename.grid(row=1, column=1)
-write_flarm.grid(row=2, column=0)
+write_flarm.grid(row=2, column=0, sticky=E)
 flarm_directory_name.grid(row=2, column=1)
-convert.grid(row=3, column=0)
+convert.grid(row=3, column=0, sticky=E)
 conversion_status.grid(row=3, column=1)
+filler.grid(row=4, column=0, columnspan=2)
 
 root.mainloop()
